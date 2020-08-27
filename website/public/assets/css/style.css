@@ -1,0 +1,11 @@
+.slideBg{
+    margin-top: 60px;
+    background-image: url("../public/images/2.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom;
+    height: auto;
+}
+.SlideContent{
+    background-color:#0000009c;
+}
