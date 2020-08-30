@@ -16,6 +16,21 @@
                         <li class="nav-item">
                             <a class="nav-link" href="blog.php">Blog</a>
                         </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                                Catégories
+                            </a>
+                            <div class="dropdown-menu">
+                                <?php 
+                                include_once "../models/cat-class.php";
+                                $categ = new Category();
+                                $mr = $categ->selectProd("category");
+                                foreach ($mr as $catRows){
+                                ?>
+                                <a class="dropdown-item" href="#"><?php echo $catRows['catName']; ?></a>
+                                <?php }?>
+                            </div>
+                        </li>
                     </ul>
                     <div class="form-inline my-2 my-lg-0">
                         <?php if(isset($_SESSION['user'])): ?>                       

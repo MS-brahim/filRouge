@@ -50,12 +50,13 @@ class Product extends DbConnect{
         }
     }
 
-    public function insertProd($prodN, $prodD, $prodP, $prodOp, $prodCat, $prodImg, $prodImg1, $prodImg2, $prodImg3)
+    public function insertProd($prodN, $prodD, $prodP, $prodOp, $prodCat, $prodImg, $prodImg1, $prodImg2, $prodImg3, $editDes)
     {
         if(empty($prodN) or empty($prodD) or empty($prodP) or empty($prodOp) or empty($prodImg)){
             return false;
         }else{
-            $sql = "INSERT INTO products (prodName, description, price, oldP, catId, image, image1, image2, image3) VALUES ('$prodN', '$prodD', '$prodP', '$prodOp','$prodCat', '$prodImg', '$prodImg1', '$prodImg2', '$prodImg3')";
+            $sql = "INSERT INTO products (prodName, description, descriptionGeneral, price, oldP, catId, image, image1, image2, image3) VALUES
+             ('$prodN', '$prodD', '$editDes', '$prodP', '$prodOp','$prodCat', '$prodImg', '$prodImg1', '$prodImg2', '$prodImg3')";
             if(mysqli_query($this->connection,$sql)){
                 return true;
             }else{

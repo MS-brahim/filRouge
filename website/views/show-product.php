@@ -27,14 +27,14 @@ $row = $user->details($sql);
         <div class="container-fluid mt-5">
             <div class="row">
                 <div class="col-sm-6 " > 
-                    <div class="card"  style="height:50%">
-                        <div class="card-body"  style="height:50%; background-image: url('../public/images/tenduses/wahl19194.jpg')" >
-                            <img src="../public/images/tenduses/wahl19194.jpg"alt="" width=100%>
+                    <div class="">
+                        <div class="card-body"  style="height:320px;width:auto" >
+                            <img class="border border-secondary" src="../public/images/tenduses/wahl19194.jpg"alt="" width=100%>
                         </div>
                     </div>
                 </div>
                 <div class="col-sm-6">
-                    <div class="card">
+                    <div class="">
                         <div class="card-body">
                             <img src="../public/images/tenduses/wahl19194.jpg" alt="" width=100%>
                         </div>

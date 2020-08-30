@@ -14,8 +14,9 @@ if (isset($_POST['addItem'])) {
     $prodImg1 = $prodObj->santString($_POST['prImage1']);
     $prodImg2 = $prodObj->santString($_POST['prImage2']);
     $prodImg3 = $prodObj->santString($_POST['prImage3']);
+    $editDes = $prodObj->santString($_POST['editDes']);
 
-    $resault = $prodObj->insertProd($prodN, $prodD, $prodP, $prodOp, $prodCat, $prodImg, $prodImg1, $prodImg2, $prodImg3);
+    $resault = $prodObj->insertProd($prodN, $prodD, $prodP, $prodOp, $prodCat, $prodImg, $prodImg1, $prodImg2, $prodImg3, $editDes);
 
     if(!$resault){
         echo "Error";

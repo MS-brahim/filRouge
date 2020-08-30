@@ -25,15 +25,28 @@ $row = $user->details($sql);
 </head>
 <body>
     <?php include_once "includes/navbar.php"?>
-    <div class="container mt-5 pt-5">
-        <div class="row">
-            <?php 
-            $categ = new Product();
-            $mr = $categ->selectProd("category");
-            foreach ($mr as $catRows){
-            ?>
-            <a href="show-product.php"><span class="mr-2"> <?php echo $catRows['catName']; ?> </span></a>
-            <?php } ?>
+    <div class="container mt-5 pt-4">
+        <div class="row w-100">
+
+            <nav class="navbar navbar-expand-md navbar-light" style="contain:content;width:inherit">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                    Catégories <i class="fa fa-angle-down" aria-hidden="true"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                    <ul class="navbar-nav">
+                        <?php 
+                            $categ = new Product();
+                            $mr = $categ->selectProd("category");
+                            foreach ($mr as $catRows){
+                            ?>
+                            <li class="nav-item">
+                                <a class="nav-link" href="show-product.php" style="width:160px"><span class="mr-2"> <?php echo $catRows['catName']; ?> </span></a>
+                            </li>
+                        <?php } ?>
+                    </ul>
+                </div>  
+            </nav>
+
         </div>
         <h1 class="text-center py-3 mt-5"><b><?php echo $prodById['prodName'];?> Coupe Finition</b></h1>
         <div class="row mt-3">
@@ -88,15 +101,16 @@ $row = $user->details($sql);
         </div>
         <div class="my-5">
         <h2>Description</h2>
-                <div class="mt-4">
-                    <p><b><?php echo $prodById['description'];?></b></p>
+            <div class="mt-4">
+                <p><b><?php echo $prodById['description'];?></b></p>
                 <p><?php echo $prodById['descriptionGeneral'];?></p>
-                </div>
-                
-            
+            </div>           
         </div>
-
     </div>
-    
+    <?php     
+    // Optional JavaScript 
+    // jQuery first, then Popper.js, then Bootstrap JS 
+    include_once "includes/scripts.php";
+    ?>
 </body>
 </html>

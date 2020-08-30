@@ -29,24 +29,34 @@ $row = $user->details($sql);
         <div class="SlideContent">
             <div class="container py-5">
                 <div class="row">
+                    
                     <div class="col-sm-3">
-                        <ul class="list-group m-4">
-                            <?php 
-                            include_once "../models/prod-class.php";
-                            $categ = new Product();
-                            $mr = $categ->selectProd("category");
-                            foreach ($mr as $catRows){
-                            ?>	
-                            <a href="show-product.php" class="list-group nav-link text-white">
-                                 <span><?php echo $catRows['catName'];?></span>
-                            </a>
-                            <?php }?>
-                            <a href="produits.php" class="list-group nav-link text-white">Les Tendeuses</a>
-                            <a href="#" class="list-group nav-link text-white">Les Tendeuses</a>
-                            <a href="#" class="list-group nav-link text-white">Les Tendeuses</a>
+                        <ul class="list-group">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle text-white" type="button"  id="navbardrop" data-toggle="dropdown">
+                                    Catégories
+                                </a>
+                                <div class="dropdown-menu w-100">
+                                    <?php 
+                                    include_once "../models/cat-class.php";
+                                    $categ = new Category();
+                                    $mr = $categ->selectProd("category");
+                                    foreach ($mr as $catRows){
+                                    ?>
+                                    <a class="dropdown-item" href="show-product.php?id=<?php echo $catRows['catId'];?>"><i class="fas fa-hand-point-right"></i> <?php echo $catRows['catName']; ?></a>
+                                    <?php }?>
+                                </div>
+                            </li>
                         </ul>
+                        <div class="card text-left mt-4 h-75">
+                          <img class="card-img-top" src="../public/assets/images/ch4.jpg" alt="">
+                          <div class="card-body">
+                            <h4 class="card-title">Chair</h4>
+                            <p class="card-text">900 Dh</p>
+                          </div>
+                        </div>
                     </div>
-                    <div class="col-sm-6">
+                    <div class="col-sm-6 mb-3">
                         <div id="carouselId" class="carousel slide " data-ride="carousel">
                             <div class="carousel-inner" role="listbox">
                                 <div class="carousel-item active">
@@ -68,6 +78,31 @@ $row = $user->details($sql);
                                 <li data-target="#carouselId" data-slide-to="2"></li>
                                 <li data-target="#carouselId" data-slide-to="3"></li>
                             </ol>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 ">
+                        <div class="d-flex flex-column">
+                            <div class="card text-left mb-3">
+                              <img class="card-img-top" src="holder.js/100px180/" alt="">
+                              <div class="card-body">
+                                <h4 class="card-title">Title</h4>
+                                <p class="card-text">Body</p>
+                              </div>
+                            </div>
+                            <div class="card text-left mb-3">
+                              <img class="card-img-top" src="holder.js/100px180/" alt="">
+                              <div class="card-body">
+                                <h4 class="card-title">Title</h4>
+                                <p class="card-text">Body</p>
+                              </div>
+                            </div>
+                            <div class="card text-left">
+                              <img class="card-img-top" src="holder.js/100px180/" alt="">
+                              <div class="card-body">
+                                <h4 class="card-title">Title</h4>
+                                <p class="card-text">Body</p>
+                              </div>
+                            </div>
                         </div>
                     </div>
                 </div>     

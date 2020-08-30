@@ -114,7 +114,7 @@ if($row['groupID']==0){
 										<div class="col-sm-12 mt-3">						
 											<label>Description Générale</label>
 											<div class="form-group">
-												<textarea class="summernote" id="editor"></textarea>
+												<textarea class="summernote" name="editDes" id="editor"></textarea>
 											</div>
 										</div>
 									</div>
@@ -141,7 +141,7 @@ if($row['groupID']==0){
             </div>
 		</div>
 
-		<!-- <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script> -->
+		<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 
 <script>
   tinymce.init({
