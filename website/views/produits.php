@@ -38,7 +38,8 @@ if($row['groupID']==0){
                         <div class="card mb-4">
                             <div class="card-header">
                                 <i class="fas fa-table mr-1"></i>
-                                DataTable Example
+                                DataTable Example 
+                                <a class="float-right" href="addprod.php"><i class="fa fa-plus-circle" aria-hidden="true"></i></a>
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
@@ -49,7 +50,7 @@ if($row['groupID']==0){
                                                 <th>Nom de produit</th>
                                                 <th>Catégorie</th>
                                                 <th>Description </th>
-												<th>Prix</th>
+												<th>Prix <small>(Dh)</small></th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
@@ -59,7 +60,7 @@ if($row['groupID']==0){
                                                 <th>Nom de produit</th>
                                                 <th>Catégorie</th>
                                                 <th>Description </th>
-												<th>Prix</th>
+												<th>Prix <small>(Dh)</small></th>
                                                 <th>Action</th>
                                             </tr>
                                         </tfoot>
@@ -75,12 +76,12 @@ if($row['groupID']==0){
                                                 <td><?php echo $prodRows['prodName'];?></td>
                                                 <td><?php echo $prodRows['catId'];?></td>
                                                 <td><?php echo $prodRows['description'];?></td>
-                                                <td><?php echo $prodRows['price'];?></td>
+                                                <td><?php echo $prodRows['price'];?><small> <del><?php echo $prodRows['oldP'];?></del></small></td>
                                                 <td class="d-flex justify-content-around">
-                                                    <a type="button" href="../views/update.php?U_ID=<?php echo $prodRows['prodId'];?>" class="btn btn-outline-success btn-sm">
-                                                        <i class="fa fa-trash" aria-hidden="true"></i>
+                                                    <a type="button" href="../views/update.php?U_ID=<?php echo $prodRows['prodId'];?>" class="btn btn-outline-secondary btn-sm">
+                                                        <i class="fas fa-edit    "></i>
                                                     </a>
-                                                    <a type="button" href="../controllers/delete.php?D_ID=<?php echo $prodRows['prodId'];?>" class="btn btn-outline-danger btn-sm">
+                                                    <a type="button" href="../controllers/delete.php?D_ID=<?php echo $prodRows['prodId'];?>" class="btn btn-outline-secondary btn-sm">
                                                         <i class="fas fa-trash-alt"></i>
                                                     </a>
                                                 </td>

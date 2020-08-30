@@ -61,22 +61,60 @@ if($row['groupID']==0){
 										<div class="col-4">
 											<div class="form-group">
 												<label for="">Prix</label>
-												<input type="text" name="prPrice" id="prPrice" class="form-control" placeholder="" aria-describedby="helpId">
+												<input type="text" name="prPrice" id="prPrice" class="form-control" placeholder="000.00" aria-describedby="helpId">
+											</div>
+										</div>
+										<div class="col-4">
+											<div class="form-group">
+												<label for="">Ancien prix</label>
+												<input type="text" name="oldPrice" id="prPrice" class="form-control" placeholder="000.00" aria-describedby="helpId">
 											</div>
 										</div>
 										<div class="col-4">						
 											<label for="">Catégorie</label>
 											<select class="form-control" name="prCateg" id="prCateg">
-												<option>Default select</option>
-												<option>Default</option>
-												<option>Default select</option>
-												<option>select</option>
+												<option value="">Select catégorie</option>
+												<?php 
+												include_once "../models/prod-class.php";
+												$categ = new Product();
+												$mr = $categ->selectProd("category");
+												foreach ($mr as $catRows){
+												?>
+												
+                                           		<option value=""><?php echo $catRows['catName'];?></option>
+											<?php }?>
 											</select>
 										</div>
-										<div class="col-4">
+									</div>
+									<div class="row mt-3 mb-3">
+										<div class="my-1 col-sm-3">
+											<div class="form-group custom-file">
+												<label for="" class="custom-file-label">image accueil</label>
+												<input type="file" class="custom-file-input" name="prImage" id="prImage" placeholder="" aria-describedby="fileHelpId">
+											</div>
+										</div>
+										<div class="my-1 col-sm-3">
+											<div class="form-group custom-file">
+												<label for="" class="custom-file-label">image 1</label>
+												<input type="file" class="custom-file-input" name="prImage1" id="prImage" placeholder="" aria-describedby="fileHelpId">
+											</div>
+										</div>
+										<div class="my-1 col-sm-3">
+											<div class="form-group custom-file">
+												<label for="" class="custom-file-label">image 2</label>
+												<input type="file" class="custom-file-input" name="prImage2" id="prImage" placeholder="" aria-describedby="fileHelpId">
+											</div>
+										</div>
+										<div class="my-1 col-sm-3">
+											<div class="form-group custom-file">
+												<label for="" class="custom-file-label">image 3</label>
+												<input type="file" class="custom-file-input" name="prImage3" id="prImage" placeholder="" aria-describedby="fileHelpId">
+											</div>
+										</div>
+										<div class="col-sm-12 mt-3">						
+											<label>Description Générale</label>
 											<div class="form-group">
-												<label for="">image</label>
-												<input type="file" class="form-control-file" name="prImage" id="prImage" placeholder="" aria-describedby="fileHelpId">
+												<textarea class="summernote" id="editor"></textarea>
 											</div>
 										</div>
 									</div>
@@ -103,7 +141,14 @@ if($row['groupID']==0){
             </div>
 		</div>
 
+		<!-- <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script> -->
 
+<script>
+  tinymce.init({
+    selector: 'textarea#editor',
+    menubar: false
+  });
+</script>
 		<script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="js/scripts.js"></script>

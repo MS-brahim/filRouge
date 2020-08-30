@@ -41,7 +41,35 @@ $row = $user->details($sql);
                     </div>
                 </div>
             </div>
-
+            <div class="container">
+                <div class="row">
+                    <?php 
+                    include_once "../models/prod-class.php";
+                    $prod = new Product();
+                    $mr = $prod->selectProd("products");
+                    foreach ($mr as $prodRows){
+                    ?>	
+                    <div class="col-md-4 my-4 ">
+                        <div class="fadeInbox">
+                            <div class=" border border-secondary pb-3">
+                                <div>
+                                    <img class="imageFade" src="../public/images/<?php echo $prodRows['image'];?>" alt="Lights" width=100%>
+                                    <div class="middleBtn">
+                                        <a href="showProduct.php?id=<?php echo $prodRows['prodId'];?>" type="button" class="btn btn-success"> Achete </a>
+                                    </div>
+                                    <div class="caption my-3 pl-2">
+                                        <a class="mb-2"><?php echo $prodRows['prodName'];?></a><br>
+                                        <b><?php echo $prodRows['price'];?> Dh</b> 
+                                        <small  class="ml-2"><del><?php echo $prodRows['oldP'];?> Dh</del></small>
+                                    </div>
+                                    <button type="button" class="btn btn-warning ml-2 ">Ajouter au panier</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <?php }?>
+                </div>
+            </div>
         </div>
     </section>
     <?php 

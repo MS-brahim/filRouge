@@ -82,13 +82,13 @@ $row = $user->details($sql);
                 <?php 
                 include_once "../models/prod-class.php";
                 $prod = new Product();
-                $mr = $prod->selectProd("products");
+                $mr = $prod->selectProd3();
                 foreach ($mr as $prodRows){
                 ?>	
-                <div class="col-md-4 ">
+                <div class="col-md-4">
                     <div class="thumbnail border border-light pl-2">
-                        <a href="/w3images/lights.jpg" target="_blank">
-                            <img src="../public/images/<?php echo $prodRows['image'];?>" alt="Lights" style="width:100%">
+                        <a href="showProduct.php?id=<?php echo $prodRows['prodId'];?>">
+                            <img src="../public/images/<?php echo $prodRows['image'];?>" alt="Lights" width=100%>
                             <div class="caption">
                                 <a><?php echo $prodRows['prodName'];?></a><br>
                                 <span><?php echo $prodRows['price'];?> Dh</span> 
@@ -109,13 +109,13 @@ $row = $user->details($sql);
                 <?php 
                 include_once "../models/prod-class.php";
                 $prod = new Product();
-                $mr = $prod->selectProd("products");
+                $mr = $prod->selectProd4();
                 foreach ($mr as $prodRows){
                 ?>	
-                <div class="col-md-3">
+                <div class="col-md-3" style="max-width:25%">
                     <div class="thumbnail border border-light pl-2">
-                        <a href="/w3images/lights.jpg" target="_blank">
-                            <img src="../public/images/<?php echo $prodRows['image'];?>" alt="Lights" style="width:100%">
+                        <a href="showProduct.php?id=<?php echo $prodRows['prodId'];?>">
+                            <img src="../public/images/<?php echo $prodRows['image'];?>" alt="Lights" width=100%>
                             <div class="caption">
                                 <a><?php echo $prodRows['prodName'];?></a><br>
                                 <span><?php echo $prodRows['price'];?> Dh</span> 

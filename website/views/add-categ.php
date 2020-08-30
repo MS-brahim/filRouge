@@ -97,21 +97,21 @@ if($row['groupID']==0){
                                         <tbody>
 											<?php 
 												include_once "../models/prod-class.php";
-												$prod = new Product();
-												$mr = $prod->selectProd("category");
-												foreach ($mr as $prodRows){
+												$categ = new Product();
+												$mr = $categ->selectProd("category");
+												foreach ($mr as $catRows){
 												?>
                                             <tr>
-                                                <td><?php echo $prodRows['catId'];?></td>
-                                                <td><?php echo $prodRows['catName'];?></td>
-                                                <td><?php echo $prodRows['description'];?></td>
+                                                <td><?php echo $catRows['catId'];?></td>
+                                                <td><?php echo $catRows['catName'];?></td>
+                                                <td><?php echo $catRows['description'];?></td>
                                                 <td>
-                                                    <a type="button" href="../views/cat-update.php?U_ID=<?php echo $prodRows['catId'];?>" class="btn btn-outline-secondary btn-sm">
+                                                    <a type="button" href="../views/cat-update.php?U_ID=<?php echo $catRows['catId'];?>" class="btn btn-outline-secondary btn-sm">
                                                         <i class="fas fa-edit "></i>
                                                     </a>
                                                 </td>
                                                 <td>
-                                                    <a type="button" href="../controllers/cat-delete.php?D_ID=<?php echo $prodRows['catId'];?>" class="btn btn-outline-secondary btn-sm">
+                                                    <a type="button" href="../controllers/cat-delete.php?D_ID=<?php echo $catRows['catId'];?>" class="btn btn-outline-secondary btn-sm">
                                                         <i class="fas fa-trash-alt"></i>
                                                     </a>
                                                 </td>
